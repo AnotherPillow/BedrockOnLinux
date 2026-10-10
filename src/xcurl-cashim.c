@@ -25,10 +25,14 @@
 typedef void CURL; typedef void CURLM;
 #define CURLOPT_CAINFO        10065
 #define CURLOPT_URL           10002
+#define CURLOPT_PROXY         10004
 #define CURLOPT_WRITEDATA     10001
 #define CURLOPT_WRITEFUNCTION 20011
 #define CURLINFO_RESPONSE_CODE 0x200002
 #define CURLINFO_EFFECTIVE_URL 0x100001
+
+/* proxy used to feed everything through locally */
+static const char g_proxy[] = "http://127.0.0.1:3000";
 
 typedef size_t (*wfn_t)(char*, size_t, size_t, void*);
 
@@ -176,7 +180,10 @@ __declspec(dllexport) CURL* curl_easy_init(void){
     init_once();
     if(!r_easy_init) return NULL;
     CURL* h=r_easy_init();
-    if(h && r_easy_setopt && g_ca[0]) r_easy_setopt(h, CURLOPT_CAINFO, g_ca);
+    if(h && r_easy_setopt){
+        if(g_ca[0]) r_easy_setopt(h, CURLOPT_CAINFO, g_ca);
+        r_easy_setopt(h, CURLOPT_PROXY, (void*)g_proxy);
+    }
     return h;
 }
 __declspec(dllexport) void curl_easy_cleanup(CURL* h){ init_once(); slot_del(h); if(r_easy_cleanup) r_easy_cleanup(h); }
