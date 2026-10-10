@@ -94,7 +94,7 @@ GDK_DEPS_SHA256 = {
 OPENSSL_XCURL_SET = DATA / "xodus-xcurl" / "openssl-set"
 OPENSSL_XCURL_REV = "22d7d454c919"
 # Integrity pin for the complete online-login payload.
-OPENSSL_XCURL_ARCHIVE_SHA256 = "504bb166e4e737ad81c3ac8e7a917740b28478f69acd89e538c3bf921c29523f"
+OPENSSL_XCURL_ARCHIVE_SHA256 = "22d7d454c919dcf59d15b6e980920a7e47a75b723acad29eb744d025db073aca"
 WINEGDK_OUT = PROTON_DIR / "GDK-Proton-xuser"
 # Managed engines are accepted only when their archive and source identity
 # match the reviewed pins below.
