@@ -92,7 +92,7 @@ GDK_DEPS_SHA256 = {
 # This OpenSSL XCurl payload avoids Wine secur32 failures against Azure and is
 # built reproducibly by scripts/build-openssl-xcurl.sh.
 OPENSSL_XCURL_SET = DATA / "xodus-xcurl" / "openssl-set"
-OPENSSL_XCURL_REV = "504bb166e4e7"
+OPENSSL_XCURL_REV = "22d7d454c919"
 # Integrity pin for the complete online-login payload.
 OPENSSL_XCURL_ARCHIVE_SHA256 = "504bb166e4e737ad81c3ac8e7a917740b28478f69acd89e538c3bf921c29523f"
 WINEGDK_OUT = PROTON_DIR / "GDK-Proton-xuser"
